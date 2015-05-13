@@ -1,0 +1,65 @@
+/* 全局样式 初始化*/
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{
+    margin:0px auto;
+    padding:0px;
+    border:0px;
+}
+body {
+	background: #FFFFFF;
+	color: #333;
+	font-size: 1.1em;
+	/*font-size: 1em;*/
+	/*margin-top: 10px;*/
+	font-family: Arial, Verdana, "微软雅黑"; WORD-BREAK: break-all;
+	/*font-family: verdana, geneva, arial, helvetica, sans-serif, 'Droid Sans Fallback';*/
+	text-align: center;
+	/*width: 1080px;*/
+	margin-left: auto;
+	margin-right: auto;
+}
+span {
+	display: inline-block;
+}
+ul, ol {
+	list-style: none;
+}
+select, input, img, select {
+	vertical-align: middle;
+}
+a {
+	display: inline-block;
+	cursor: pointer;
+	text-decoration: none;
+	color: #000;
+}
+a:link {
+	color: #000;
+}
+a:visited {
+	color: #000;
+}
+a:hover, a:active, a:focus {
+	color: #000;
+	text-decoration: none;
+}
+.fl{float: left;}
+.fr{float: right;}
+.cb{clear: both;}
+.text-overflow {
+	display: block;/*内联对象需加*/
+	/*width: 100px;*/
+	word-break: keep-all;/* 不换行 */
+	white-space: nowrap;/* 不换行 */
+	overflow: hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+	/*text-overflow: ellipsis;*//* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+.blue-shade{
+	background: #478DCD;
+	FILTER: progid: DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#64ADF0, endColorStr=#478DCD); /*IE 6 7 8*/
+	background: -ms-linear-gradient(top, #64ADF0, #478DCD); /* IE 10 */
+	background: -moz-linear-gradient(top, #64ADF0, #478DCD); /*火狐*/
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#64ADF0), to(#478DCD)); /*谷歌*/
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#64ADF0), to(#478DCD)); /* Safari 4-5, Chrome 1-9*/
+	background: -webkit-linear-gradient(top, #64ADF0, #478DCD); /*Safari5.1 Chrome 10+*/
+	background: -o-linear-gradient(top, #64ADF0, #478DCD); /*Opera 11.10+*/
+}
