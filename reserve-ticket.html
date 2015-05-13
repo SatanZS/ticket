@@ -4,12 +4,12 @@
 	<head>
 		<meta charset="utf-8">
 		<title>车票预订</title>
-		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-		<script src="../bui/build/seed-min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="build/seed-min.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="shortcut icon" href="img/favicon.ico" />
 		<link rel="bookmark" href="img/favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="../bui/build/css/bui-min.css" />
-		<link rel="stylesheet" type="text/css" href="../bui/build/css/dpl-min.css" />
+		<link rel="stylesheet" type="text/css" href="build/css/bui-min.css" />
+		<link rel="stylesheet" type="text/css" href="build/css/dpl-min.css" />
 		<link rel="stylesheet" type="text/css" href="css/global.css" />
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -105,7 +105,9 @@
 						alert("请输入出发地");
 					}else if($("#toStationText").val().length < 1 || $("#toStationText").val() ==  "简码/汉字"){
 						alert("请输入目的地");
-					}else {
+					}else if($("#departday").val().length < 1 || $("#departday").val() ==  ""){
+						alert("请输入乘车日期");
+					}else{
 						$("#search-result").text(
 							$("#fromStationText").val()+"-->"+$("#toStationText").val()
 						);
