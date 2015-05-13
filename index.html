@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录</title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../bui/build/seed-min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="shortcut icon" href="img/favicon.ico"/>
+		<link rel="bookmark" href="img/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="../bui/build/css/bui-min.css"/>
+		<link rel="stylesheet" type="text/css" href="../bui/build/css/dpl-min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/verifyCode.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<div id="header-warp">
+					<div id="logo" class="fl">
+						<img src="img/logo.png" alt="苏氏铁路客运服务系统logo"/>
+					</div>
+					<div id="menu" class="fr">
+						<div id="logo-status" class="fr">
+							<span id="" style="margin-right: 20px;">
+								您好,请
+								<a href="login.html">登录</a>&nbsp;|&nbsp;
+								<a href="#">注册</a>
+								<a href="#" class="myInfo" style="margin-left: 10px;">
+									个人中心
+									<span style="width: 10px;height:10px;background: url(img/ui-icons_222222_256x240.png) -68px -18px no-repeat;"></span>
+								</a>
+							</span>
+						</div>
+						<div id="nav" class="fr">
+							<ul>
+								<li><a href="index.html" class="current">首页</a></li>
+								<li><a href="reserve-ticket.html">车票预订</a></li>
+								<li><a href="search-ticket.html">余票查询</a></li>
+								<li><a href="news.html">最新信息</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="content">
+	    		<div id="login-warp" class="row fl">
+	    			<div id="login-title" class="blue-shade" style="">
+	    				用户登录
+	    			</div>
+	    			<div id="clock" style="text-align: left;padding: 10px;margin-top: 15px;">
+	    				<div id="" class="fl" style="width: 60px;padding-left: 10px;">
+	    					<img width="60px" src="img/clock.png"/>
+	    				</div>
+	    				<div id="showTime" class="fr" style="line-height: 20px;font-size: 14px;width: 160px;padding-left: 30px;">
+	    					
+	    				</div>
+	    				<script type="text/javascript">
+	    					showTime();
+	    					setInterval("showTime()",1000);
+		    				function showTime(){
+		    					var newDate = new Date();
+		    					var year = newDate.getFullYear();
+		    					var month = newDate.getMonth()+1;
+		    					var day = newDate.getDate();
+		    					var hour = newDate.getHours();
+		    					var min = newDate.getMinutes();
+		    					var sec = newDate.getSeconds();
+		    					var Week = ['日','一','二','三','四','五','六'];  
+        						var week = Week[newDate.getDay()]; 
+		    					if(month < 10){month = "0"+month.toString()}
+		    					if(day < 10){day = "0"+day.toString()}
+		    					if(hour < 10){hour = "0"+hour.toString()}
+		    					if(min< 10){min = "0"+min.toString()}
+		    					if(sec < 10){sec = "0"+sec.toString()}
+		    					document.getElementById("showTime").innerHTML = year +"年"+month+"月"+day+"日<br />"+hour+":"+min+":"+sec+"<br />"+"星期"+week;
+		    				}
+	    					
+	    				</script>
+	    			</div>
+	    			<div class="cb"></div>
+					<form class="form-horizontal login-form"  method="post">
+						<div class="row">
+							<label for="userName" class="" >用户名：</label>
+							<input type="text" name="userName" id="userName" placeholder="用户名/邮箱"/>
+						</div>
+						
+						<div class="row">
+							<label for="pwd" class="">密码：</label>
+							<input type="password" name="pwd" id="pwd" placeholder="密码"/>
+						</div>
+						
+						<div class="row">
+							<label for="codeText" class="">验证码：</label>
+							<input type="text" name="codeText" id="codeText" placeholder="请输入验证码" />
+						</div>
+						
+						<div class="row code-warp">
+							<a title="点击切换" id="checkCode" class="code" onClick="createCode()"></a>
+							<a href="javascript:void(0);"  onClick="createCode()" style="font-size: 0.7em">看不清,换一个</a>
+							<input id="Button1" onClick="validate();" type="hidden" value="确定" />
+						</div>
+						
+						<div class="row form-btn">
+							<input type="submit" id="login" value="登录" />
+							<input type="button" id="register" value="快速注册" />
+						</div>
+					</form>
+				</div>
+				<div id="news-warp" class="fr" style="width: 700px;">
+					<div id="news-title" class="blue-shade">
+						最新消息
+					</div>
+					<div id="news-content">
+						<ul class="news-list" style="">
+							<li style="">
+								<span class="fl" id="num" style="">1</span>
+								<span id="" class="text-overflow fl" style="width: 500px;">
+									<a href="#">
+										关于高铁动卧列车试行季节性票价的公告
+									</a>
+								</span>
+								<span id="" class="fr">
+									2015-04-14
+								</span>
+							</li>
+							<li style="">
+								<span class="fl" id="num" style="">2</span>
+								<span id="" class="text-overflow fl" style="width: 500px;">
+									<a href="#">
+										关于优化高铁动卧夕发朝至列车运行时刻和停站公告.doc
+									</a>
+								</span>
+								<span id="" class="fr">
+									2015-04-14
+								</span>
+							</li>
+							<li style="">
+								<span class="fl" id="num" style="">3</span>
+								<span id="" class="text-overflow fl" style="width: 500px;">
+									<a href="#">
+										公告
+									</a>
+								</span>
+								<span id="" class="fr">
+									2015-04-14
+								</span>
+							</li>
+							<li style="">
+								<span class="fl" id="num" style="">4</span>
+								<span id="" class="text-overflow fl" style="width: 500px;">
+									<a href="#">
+										关于再次增开高铁动卧列车的公告
+									</a>
+								</span>
+								<span id="" class="fr">
+									2015-04-14
+								</span>
+							</li>
+							<li style="">
+								<span class="fl" id="num" style="">5</span>
+								<span id="" class="text-overflow fl" style="width: 500px;">
+									<a href="#">
+										公 告
+									</a>
+								</span>
+								<span id="" class="fr">
+									2015-04-14
+								</span>
+							</li>
+							<li style="">
+								<span class="fl" id="num" style="">6</span>
+								<span id="" class="text-overflow fl" style="width: 500px;">
+									<a href="#">
+										关于高铁动卧执行票价的公告
+									</a>
+								</span>
+								<span id="" class="fr">
+									2015-04-14
+								</span>
+							</li>
+							<li style="">
+								<span class="fl" id="num" style="">7</span>
+								<span id="" class="text-overflow fl" style="width: 500px;">
+									<a href="#">
+										关于提醒广大旅客使用12306官方网站购票的公告
+									</a>
+								</span>
+								<span id="" class="fr">
+									2015-04-14
+								</span>
+							</li>
+							<li style="">
+								<span class="fl" id="num" style="">8</span>
+								<span id="" class="text-overflow fl" style="width: 500px;">
+									<a href="#">
+										关于高铁动卧夕发朝至列车有关事项的公告
+									</a>
+								</span>
+								<span id="" class="fr">
+									2015-04-14
+								</span>
+							</li>
+							<li style="">
+								<span class="fl" id="num" style="">9</span>
+								<span id="" class="text-overflow fl" style="width: 500px;">
+									<a href="#">
+										关于发布“铁路12306”手机购票客户端2.0版本的通知 
+									</a>
+								</span>
+								<span id="" class="fr">
+									2015-04-14
+								</span>
+							</li>
+							<li style="border: none;">
+								<span id="" class="fr">
+									<a href="news.html">更多>></a>
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			    <div class="cb"></div>
+			</div>
+			<div id="footer">
+				<p><a href="">关于我们</a>|<a href="">版权声明</a></p>
+				<p>版权所有&copy;2006-2015 苏氏工作室</p>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$(function(){
+				window.onload = createCode();
+				
+				var jsonData = [{"userName":"a","pwd":"1111"},
+								{"userName":"b","pwd":"1111"},
+								{"userName":"c","pwd":"1111"},
+								{"userName":"d","pwd":"1111"},
+								{"userName":"e","pwd":"1111"}];
+				$(".login-form").submit(function(event){
+					event.preventDefault();
+					var validateResult = validateForm(jsonData);
+					if(validateResult){
+						window.location.href = "login-success.html";
+					}
+				});
+				
+				BUI.use("bui/menu",function(Menu){
+			        var dropMenu = new Menu.PopMenu({
+			          elCls:'showmenu',
+			          trigger : '.myInfo',
+			          autoRender : true,
+			          triggerEvent : 'mouseenter',
+			          triggerHideEvent : 'mouseleave',
+			          autoHideType:'leave',
+			          width : 100,
+			          children : [{
+			            id:'info',
+			            content : "个人信息",
+			          },{
+			          	id:'orders',
+			            content : "订单中心"
+			          },{
+			          	id:'linkman',
+			            content : "常用联系人"
+			          }]
+			        });
+			        dropMenu.on('click', function(){
+			          alert(dropMenu.get("link"));
+			        });
+				});
+			});
+		</script>
+	</body>
+</html>
