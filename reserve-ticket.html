@@ -103,6 +103,8 @@
 				$("#search-btn").click(function(){
 					if($("#fromStationText").val().length < 1 || $("#fromStationText").val() ==  "简码/汉字"){
 						alert("请输入出发地");
+					}else if($("#toStationText").val().length < 1 || $("#toStationText").val() ==  "简码/汉字"){
+						alert("请输入目的地");
 					}else {
 						$("#search-result").text(
 							$("#fromStationText").val()+"-->"+$("#toStationText").val()
